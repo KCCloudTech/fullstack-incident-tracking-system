@@ -1,98 +1,81 @@
-# Fits
+# Fire and Emergency Incident Tracking System
 
-This project was generated using [Nx](https://nx.dev).
+This TypeScript Monorepo includes an API server in NestJS, an Angular/Material Web App, and a Shared Library of classes common to both the API and Web App.
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+#
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Web App Mockup
+My initial UI/UX design presented the user with a "Dashboard" Grid Layout with 6 tiles. Although the tiles resize with the browser, I didn't take the extra time required to make the layout mobile-friendly. With the amount of information to display as well as the size requirements of the map, this app really requires a tablet or desktop display -- mobile navigation would most-likely be problematic.
 
-## Quick Start & Documentation
+![Web App Mockup](apps/api/src/assets/Mockup.png)
 
-[Nx Documentation](https://nx.dev/angular)
+I created the mockup with the [Draw.io Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=hediet.vscode-drawio), which I also added to the recommended extensions in the `.vscode` directory. The `Mockup.drawio` source file is in the assets directory of the API app.
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+#
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+## Installation Instructions
+As a full-stack TypeScript/Node.js app, the only prerequisites are the latest LTS (or stable) version of Node and NPM or Yarn.
 
-## Adding capabilities to your workspace
+### Clone the repository:
+```
+$ git clone https://github.com/KCCloudTech/fullstack-incident-tracking-system.git
+```
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+### Install the dependencies:
+```
+$ cd ./fullstack-incident-tracking-system
+$ npm i
+```
+Or, if you prefer...
+```
+$ yarn
+```
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
 
-Below are our core plugins:
+## Running the Full-Stack App
+Once the dependencies are installed, you can launch the NestJS API server on port 3333, and serve the static Angular site on port 4200. For development, the Angular static web host provides an HTTP Proxy to port 3333, so you don't have to deal with CORS issues. For example, http://localhost:4200/api/incidents will pass through to http://localhost:3333/api/incidents.
 
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
+### Launching the API Server
+From the project root, execute the following command in your OS shell:
+```
+$ nx serve api
+```
+Once the project builds, you should see something like the following:
+```
+[Nest] [NestFactory] Starting Nest application...
+[Nest] [InstanceLoader] AppModule dependencies initialized +18ms
+[Nest] [RoutesResolver] AppController {/api/incidents}: +11ms
+[Nest] [RouterExplorer] Mapped {/api/incidents, GET} route +3ms
+[Nest] [RouterExplorer] Mapped {/api/incidents/:key, GET} route +2ms
+[Nest] [NestApplication] Nest application successfully started +3ms
+[Nest] Listening at http://localhost:3333/api +3ms
+No type errors found
+Version: typescript 4.0.3
+Time: 4159ms
+```
 
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
+If you point your browser to either of the following URLs, you should see the JSON response enriched with the weather data:
 
-## Generate an application
+http://localhost:3333/api/incidents/F01705150050
 
-Run `ng g @nrwl/angular:app my-app` to generate an application.
 
-> You can use any of the plugins above to generate applications as well.
+http://localhost:3333/api/incidents/F01705150090
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
 
-## Generate a library
+### Serving the static Web App
+From the project root, execute the following command in a new OS shell tab/window:
+```
+$ nx serve dashboard -o
+```
+Or simply...
+```
+$ nx serve -o
+```
+The Angular web app should launch in your default browser once the build is complete. You should see something like the following:
 
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
+![Web App Mockup](apps/api/src/assets/Angular-Material.png)
 
-> You can also use any of the plugins above to generate libraries as well.
+## Missing Features
+I had planned to show the vehicles for the selected incident on the map as well as in the Apparatus list. Also, I planned for the Feed panel to display the `unit_status` status updates for the selected vehicle (sorted by timestamp). If I would have made it that far, then the final step would have been to show the vehicle's location for each status update. Using the material design GoogleMap component cost a little time trying to figure out to select markers.
 
-Libraries are sharable across libraries and applications. They can be imported from `@fits/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
+All in all, this was an excellent exercise and one I wish I had more time to polish before submitting it for review.
