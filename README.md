@@ -36,7 +36,7 @@ $ yarn
 Once the dependencies are installed, you can launch the NestJS API server on port 3333, and serve the static Angular site on port 4200. For development, the Angular static web host provides an HTTP Proxy to port 3333, so you don't have to deal with CORS issues. For example, http://localhost:4200/api/incidents will pass through to http://localhost:3333/api/incidents.
 
 ### Launching the API Server
-From the project root, execute the following command in your OS shell:
+Before running the API Server, you need to set your meteostat.net API key in the environment files. Then, from the project root, execute the following command in your OS shell:
 ```
 $ nx serve api
 ```
@@ -63,7 +63,7 @@ http://localhost:3333/api/incidents/F01705150090
 
 
 ### Serving the static Web App
-From the project root, execute the following command in a new OS shell tab/window:
+Before serving the web app, you need to set your Google Maps API key in the `index.html` file. Then, from the project root, execute the following command in a new OS shell tab/window:
 ```
 $ nx serve dashboard -o
 ```
