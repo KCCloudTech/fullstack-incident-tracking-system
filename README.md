@@ -76,6 +76,6 @@ The Angular web app should launch in your default browser once the build is comp
 ![Web App Mockup](apps/api/src/assets/Angular-Material.png)
 
 ## Missing Features
-I had planned to show the vehicles for the selected incident on the map as well as in the Apparatus list. Also, I planned for the Feed panel to display the `unit_status` status updates for the selected vehicle (sorted by timestamp). If I would have made it that far, then the final step would have been to show the vehicle's location for each status update. Using the material design GoogleMap component cost a little time trying to figure out to select markers.
+I had planned to show the vehicles for the selected incident on the map as well as in the Apparatus list. Also, I planned for the Feed panel to display the `unit_status` status updates for the selected vehicle (sorted by timestamp). If I would have made it that far, then the final step would have been to show the vehicle's location for each status update. Using the material design GoogleMap component cost a little time trying to figure out how to select markers.
 
 All in all, this was an excellent exercise and one I wish I had more time to polish before submitting it for review.
