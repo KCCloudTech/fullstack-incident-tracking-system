@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   weather: {
-    api_key: 'zsjOtljigByhVBEgBmxQGNtMTcYJTVja',
+    api_key: 'XXXXXXX',
     stations_url: 'https://api.meteostat.net/v2/stations/nearby',
     hourly_url: 'https://api.meteostat.net/v2/point/hourly'
   }
