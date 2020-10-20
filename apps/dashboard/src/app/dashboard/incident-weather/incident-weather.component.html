@@ -1,20 +1,20 @@
-<div class="tile-content" *ngIf="incident">
+<div class="tile-content" *ngIf="weather">
   <table class="weather-table">
     <tr>
       <th>Tempurature:</th>
-      <td>{{ incident.weather.temp }}</td>
+      <td>{{ weather.temp }}</td>
     </tr>
     <tr>
       <th>Dew Point:</th>
-      <td>{{ incident.weather.dwpt }}</td>
+      <td>{{ weather.dwpt }}</td>
     </tr>
     <tr>
       <th>Relative Humidity:</th>
-      <td>{{ incident.weather.rhum }}</td>
+      <td>{{ weather.rhum }}</td>
     </tr>
     <tr>
       <th>Wind Direction:</th>
-      <td>{{ incident.weather.wdir }}</td>
+      <td>{{ weather.wdir }}</td>
     </tr>
   </table>
 </div>

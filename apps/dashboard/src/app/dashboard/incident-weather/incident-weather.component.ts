@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Incident } from '@fits/api-interfaces';
+import { Incident, Weather } from '@fits/api-interfaces';
 import { Subscription } from 'rxjs';
 import { IncidentService } from '../../services';
 
@@ -9,14 +9,14 @@ import { IncidentService } from '../../services';
   styleUrls: ['./incident-weather.component.scss']
 })
 export class IncidentWeatherComponent implements OnInit, OnDestroy {
-  incident: Incident;
+  weather: Weather;
   subscription: Subscription;
 
   constructor(private service: IncidentService) { }
 
   ngOnInit(): void {
     this.subscription = this.service.selectedIncident$.subscribe((incident) => {
-      this.incident = incident;
+      this.weather = incident.weather;
     });
   }
 
