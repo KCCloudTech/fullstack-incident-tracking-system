@@ -13,6 +13,10 @@ export class Apparatus {
   unit_id: string;
   unit_type: string;
   unit_status: object;
+
+  constructor(props: Partial<Apparatus>) {
+    Object.assign(this, props);
+  }
 }
 
 export class StatusUpdateMap extends Map<string, StatusUpdate> {
@@ -41,6 +45,10 @@ export class StatusUpdateMap extends Map<string, StatusUpdate> {
 
 export class ApparatusModel extends Apparatus {
   private _statusUpdates: StatusUpdateMap = new StatusUpdateMap();
+
+  constructor(props: Partial<Apparatus>) {
+    super(props);
+  }
 
   get statusUpdates(): StatusUpdateMap {
     if (this._statusUpdates.size === 0) {

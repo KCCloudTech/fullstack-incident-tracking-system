@@ -1,12 +1,18 @@
 /*
  * Remove template code below
  */
-:host {
-  display: block;
-  font-family: sans-serif;
-  min-width: 300px;
-  max-width: 600px;
-  margin: 50px auto;
+// :host {
+//   display: block;
+//   font-family: sans-serif;
+//   min-width: 300px;
+//   max-width: 600px;
+//   margin: 50px auto;
+// }
+
+.incidents-banner {
+  margin-left: 10px;
+  font-size: 24pt;
+  vertical-align: middle;
 }
 
 .gutter-left {

@@ -1,0 +1,6 @@
+<div fxFlexLayout="column" *ngIf="address">
+  <div>{{address.address_line1}}</div>
+  <div fxFlexLayout="row">
+    <div>{{address.city}}, {{address.state}} {{address.postal_code}}</div>
+  </div>
+</div>

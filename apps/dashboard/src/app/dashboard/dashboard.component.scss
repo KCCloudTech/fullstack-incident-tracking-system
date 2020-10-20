@@ -1,0 +1,50 @@
+.grid-container {
+  margin: 10px;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.dashboard-grid {
+  height: calc(100%);
+}
+
+.tile-container {
+  position: relative;
+  top: 24px;
+  width: 100%;
+  height: calc(100% - 48px);
+  overflow-y: auto;
+}
+
+.mat-grid-tile-header {
+  color: white !important;
+  font-size: 1.35em;
+  font-weight: bold;
+}
+
+.incidents-header {
+  background-color: #CB4335  !important;
+}
+
+.map-header {
+  background-color: #239B56 !important;
+}
+
+.apparatus-header {
+  background-color: #E67E22 !important;
+}
+
+.feed-header {
+  background-color: #118AB2 !important;
+}
+
+.details-header {
+  background-color: #884EA0 !important;
+}
+
+.weather-header {
+  background-color: #839192 !important;
+}

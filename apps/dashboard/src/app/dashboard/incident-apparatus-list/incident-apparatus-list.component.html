@@ -1,0 +1,28 @@
+<div class="tile-content" *ngIf="apparatusList">
+  <div class="apparatus-container"
+    (click)="onClick(apparatus)"
+    [ngClass]="{ 'odd': odd }"
+    *ngFor="let apparatus of apparatusList; let odd = odd"
+  >
+    <table class="apparatus-table">
+      <tbody>
+        <tr>
+          <th>Unit ID:</th>
+          <td>{{ apparatus.unit_id }}</td>
+        </tr>
+        <tr>
+          <th>Unit Type:</th>
+          <td>{{ apparatus.unit_type }}</td>
+        </tr>
+        <tr>
+          <th>Station:</th>
+          <td>{{ apparatus.station }}</td>
+        </tr>
+        <tr>
+          <th>Shift:</th>
+          <td>{{ apparatus.shift }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

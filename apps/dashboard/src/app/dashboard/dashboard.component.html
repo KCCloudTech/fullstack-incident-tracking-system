@@ -1,0 +1,56 @@
+<div class="grid-container">
+  <mat-grid-list
+    cols="9"
+    rowHeight="fit"
+    gutterSize="7px"
+    class="dashboard-grid"
+  >
+    <mat-grid-tile colspan="2" rowspan="2" class="mat-elevation-z3">
+      <mat-grid-tile-header class="incidents-header"
+        >Incidents</mat-grid-tile-header
+      >
+      <div class="tile-container">
+        <fits-incident-list class="tile-content"></fits-incident-list>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="7" rowspan="5" class="mat-elevation-z3">
+      <mat-grid-tile-header class="map-header">Map</mat-grid-tile-header>
+      <div class="tile-container">
+        <fits-incident-map></fits-incident-map>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="2" class="mat-elevation-z3">
+      <mat-grid-tile-header class="apparatus-header">Apparatus</mat-grid-tile-header>
+      <div class="tile-container">
+        <fits-incident-apparatus-list></fits-incident-apparatus-list>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="3" class="mat-elevation-z3">
+      <mat-grid-tile-header class="feed-header">Feed</mat-grid-tile-header>
+      <div class="tile-container">
+        <fits-incident-feed></fits-incident-feed>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="5" rowspan="2" class="mat-elevation-z3">
+      <mat-grid-tile-header class="details-header"
+        >Details</mat-grid-tile-header
+      >
+      <div class="tile-container">
+        <fits-incident-details></fits-incident-details>
+      </div>
+    </mat-grid-tile>
+
+    <mat-grid-tile colspan="2" rowspan="2" class="mat-elevation-z3">
+      <mat-grid-tile-header class="weather-header"
+        >Weather</mat-grid-tile-header
+      >
+      <div class="tile-container">
+        <fits-incident-weather></fits-incident-weather>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

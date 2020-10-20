@@ -1,0 +1,19 @@
+<mat-expansion-panel
+  *ngFor="let entry of incidents | keyvalue"
+  (opened)="shouldOpen()"
+  (closed)="shouldClose()"
+>
+  <mat-expansion-panel-header
+    [routerLink]="['/incidents', entry.value.description.incident_number]"
+  >
+    <mat-panel-title>
+      <div fxFlex="column">
+        <div class="mat-body2">{{ entry.value.description.type }}</div>
+        <div class="mat-small">{{ entry.value.description.subtype }}</div>
+      </div>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <fits-incident-address
+    [address]="entry.value.address"
+  ></fits-incident-address>
+</mat-expansion-panel>

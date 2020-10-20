@@ -1,0 +1,13 @@
+<!-- <div *ngIf="mapsLoaded$ | async" class="map-container tile-content"> -->
+<div class="map-container tile-content">
+  <google-map width="100%" height="100%" [center]="center" [zoom]="12">
+    <map-marker
+      *ngFor="let entry of markers | keyvalue"
+      [title]="entry.key"
+      [position]="entry.value.geo"
+      [clickable]="true"
+      [options]="markerOptions"
+      (mapClick)="onMarkerClick($event)"
+    ></map-marker>
+  </google-map>
+</div>

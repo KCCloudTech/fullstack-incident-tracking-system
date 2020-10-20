@@ -1,0 +1,12 @@
+<div class="tile-content" *ngIf="incident">
+  <div fxFlex="column" class="incident-handle">
+    <div class="mat-body2">{{incident.description.type}}</div>
+    <div class="mat-small">{{incident.description.subtype}}</div>
+  </div>
+  <div fxFlex="column">
+    <fits-incident-address [address]="incident.address"></fits-incident-address>
+    <mat-divider></mat-divider>
+    <div class="mat-body-2">Comments:</div>
+    <div class="incident-comments">{{incident.description.comments}}</div>
+  </div>
+</div>
