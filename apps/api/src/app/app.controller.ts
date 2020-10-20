@@ -1,15 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
-
-import { Message } from '@fits/api-interfaces';
+import { Incident } from '@fits/api-interfaces';
+import { Controller, Get, Param } from '@nestjs/common';
 
 import { AppService } from './app.service';
 
-@Controller()
+@Controller('incidents')
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getData(): Message {
-    return this.appService.getData();
+  @Get()
+  async getIncidentList(): Promise<Array<Incident>> {
+    return this.appService.getIncidentList();
+  }
+
+  @Get(':id')
+  async getIncidentDetails(@Param() params: any): Promise<Incident> {
+    return this.appService.getIncidentDetails(params.id);
   }
 }

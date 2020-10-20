@@ -11,6 +11,24 @@ export class Incident {
   fire_department: FireDepartment;
   weather?: Weather;
   version: string;
+
+  static isIncident(candidate: any): boolean {
+    return ['address', 'apparatus', 'description', 'fire_department'].every((key) => {
+      return key in candidate;
+    });
+  }
+
+  get id(): string {
+    return this.description.incident_number;
+  }
+
+  get lat(): number {
+    return this.address.latitude;
+  }
+
+  get lng(): number {
+    return this.address.longitude;
+  }
 }
 
 export class IncidentMap extends Map<string, Incident> {
