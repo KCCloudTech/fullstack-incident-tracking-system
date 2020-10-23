@@ -1,6 +1,6 @@
 // import { ExtendedData } from './ExtendedData';
 
-import { StatusUpdate } from './StatusUpdate';
+import { StatusUpdateCollection } from './StatusUpdate';
 
 export class Apparatus {
   car_id: string;
@@ -13,50 +13,25 @@ export class Apparatus {
   unit_id: string;
   unit_type: string;
   unit_status: object;
-
-  constructor(props: Partial<Apparatus>) {
-    Object.assign(this, props);
-  }
-}
-
-export class StatusUpdateMap extends Map<string, StatusUpdate> {
-  private _keys: Array<string> = new Array<string>();
-
-  get keysByTime(): Array<string> {
-    if (this._keys.length === 0) {
-      this._keys = Array.from(this.keys());
-    }
-    return this._keys;
-
-    // TODO implement with moment.js
-    // try {
-    //   if (this._keys.length === 0) {
-    //     const self = this;
-    //     this.forEach((status: StatusUpdate, key: string) => {
-    //       const timestamp = status.timestamp;
-    //     });
-    //   }
-    // } catch (err) {
-    //   console.log(err.message);
-    // }
-    // return this._keys;
-  }
 }
 
 export class ApparatusModel extends Apparatus {
-  private _statusUpdates: StatusUpdateMap = new StatusUpdateMap();
+  private _statusUpdates: StatusUpdateCollection = new StatusUpdateCollection();
 
   constructor(props: Partial<Apparatus>) {
-    super(props);
+    super();
+    Object.assign(this, props);
   }
 
-  get statusUpdates(): StatusUpdateMap {
+  get statusUpdates(): StatusUpdateCollection {
     if (this._statusUpdates.size === 0) {
-      const self = this;
-      Object.keys(this.unit_status).forEach((key) => {
-        self._statusUpdates.set(key, self.unit_status[key]);
-      });
+      this._statusUpdates.init(this.unit_status);
     }
     return this._statusUpdates;
   }
+}
+
+
+export class ApparatusCollection extends Map<string, Apparatus> {
+
 }

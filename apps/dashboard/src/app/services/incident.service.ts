@@ -4,7 +4,7 @@ import axios from 'axios';
 import { isNullOrUndefined } from 'util';
 
 import { environment } from '../../environments/environment';
-import { Incident, IncidentCollection } from '@fits/api-interfaces';
+import { Incident, IncidentCollection, IncidentModel } from '@fits/api-interfaces';
 import { Subject } from 'rxjs';
 
 @Injectable({
@@ -56,7 +56,7 @@ export class IncidentService {
         const resp = await axios.get(url);
         incident = resp.data;
       }
-      if (Incident.isIncident(incident)) {
+      if (IncidentModel.isIncident(incident)) {
         this.selectedIncidentSubject.next(incident);
         return Promise.resolve(incident);
       } else {

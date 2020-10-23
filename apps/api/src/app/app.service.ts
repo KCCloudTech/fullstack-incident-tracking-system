@@ -11,6 +11,7 @@ import { environment } from '../environments/environment';
 import {
   Incident,
   IncidentCollection,
+  IncidentModel,
   Weather,
 } from '@fits/api-interfaces';
 
@@ -69,12 +70,12 @@ export class AppService {
           const data = readFileSync(fqn);
 
           incident = JSON.parse(data.toString());
-          loaded = Incident.isIncident(incident);
+          loaded = IncidentModel.isIncident(incident);
           if (loaded) {
             this.incidents.set(id, incident);
           }
         } else {
-          loaded = Incident.isIncident(incident);
+          loaded = IncidentModel.isIncident(incident);
         }
 
         if (!loaded) {
@@ -92,7 +93,7 @@ export class AppService {
   protected async getStation(incident: Incident): Promise<any> {
     let station = null;
     try {
-      if (Incident.isIncident(incident)) {
+      if (IncidentModel.isIncident(incident)) {
         this.errorMessages.length = 0;
 
         const id = incident.description.incident_number;

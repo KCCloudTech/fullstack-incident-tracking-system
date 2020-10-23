@@ -2,7 +2,13 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
-    "types": []
+    "types": [
+      "googlemaps",
+      "axios"
+    ]
   },
-  "files": ["src/main.ts", "src/polyfills.ts"]
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts"
+  ]
 }

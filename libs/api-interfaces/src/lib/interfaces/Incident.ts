@@ -11,11 +11,21 @@ export class Incident {
   fire_department: FireDepartment;
   weather?: Weather;
   version: string;
+}
 
-  static isIncident(candidate: any): boolean {
-    return ['address', 'apparatus', 'description', 'fire_department'].every((key) => {
-      return key in candidate;
+export class IncidentModel extends Incident {
+
+  static isIncident(obj: any): boolean {
+    return ['address', 'apparatus', 'description', 'fire_department'].every((prop) => {
+      return prop in obj;
     });
+  }
+
+  constructor(props: Partial<Incident>) {
+    super();
+    if (IncidentModel.isIncident(props)) {
+      Object.assign(this, props);
+    }
   }
 
   get id(): string {

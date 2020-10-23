@@ -115,21 +115,21 @@ export class IncidentCollectionComponent implements OnInit, AfterViewInit, OnDes
         });
         this.markers.set(key, marker);
 
-        // const marker2 = new google.maps.Marker({
-        //   map: this.map.googleMap,
-        //   title: key,
-        //   position: {
-        //     lat: address.latitude,
-        //     lng: address.longitude,
-        //   },
-        //   draggable: false,
-        // });
-        // google.maps.event.addListener(marker, 'click', () => {
-        //   this.infoWindow.setContent(
-        //     `${info.type}<br/>${info.subtype}<br/>${key}`
-        //   );
-        //   this.infoWindow.open(this.map.googleMap, marker);
-        // });
+        const mapMarker = new google.maps.Marker({
+          map: this.map.googleMap,
+          title: key,
+          position: {
+            lat: address.latitude,
+            lng: address.longitude,
+          },
+          draggable: false,
+        });
+        google.maps.event.addListener(mapMarker, 'click', () => {
+          this.infoWindow.setContent(
+            `${marker.info.type}<br/>${marker.info.subtype}<br/>${key}`
+          );
+          this.infoWindow.open(this.map.googleMap, mapMarker);
+        });
       });
     }
   }
