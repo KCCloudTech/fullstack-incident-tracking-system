@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IncidentMapComponent } from './incident-map.component';
+import { IncidentCollectionComponent } from './incident-map.component';
 
-describe('IncidentMapComponent', () => {
-  let component: IncidentMapComponent;
-  let fixture: ComponentFixture<IncidentMapComponent>;
+describe('IncidentCollectionComponent', () => {
+  let component: IncidentCollectionComponent;
+  let fixture: ComponentFixture<IncidentCollectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IncidentMapComponent ]
+      declarations: [ IncidentCollectionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IncidentMapComponent);
+    fixture = TestBed.createComponent(IncidentCollectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

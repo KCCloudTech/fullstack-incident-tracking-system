@@ -25,10 +25,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { IncidentListComponent } from './dashboard/incident-list/incident-list.component';
 import { IncidentDetailsComponent } from './dashboard/incident-details/incident-details.component';
-import { IncidentMapComponent } from './dashboard/incident-map/incident-map.component';
+import { IncidentCollectionComponent } from './dashboard/incident-map/incident-map.component';
 import { IncidentFeedComponent } from './dashboard/incident-feed/incident-feed.component';
 import { IncidentWeatherComponent } from './dashboard/incident-weather/incident-weather.component';
-import { IncidentService, SubscriptionService } from './services';
+import { IncidentService } from './services';
 import { IncidentHandleComponent } from './dashboard/incident-handle/incident-handle.component';
 import { IncidentAddressComponent } from './dashboard/incident-address/incident-address.component';
 import { IncidentListItemComponent } from './dashboard/incident-list-item/incident-list-item.component';
@@ -41,7 +41,7 @@ import { IncidentApparatusListComponent } from './dashboard/incident-apparatus-l
     DashboardComponent,
     IncidentListComponent,
     IncidentDetailsComponent,
-    IncidentMapComponent,
+    IncidentCollectionComponent,
     IncidentFeedComponent,
     IncidentWeatherComponent,
     IncidentHandleComponent,
@@ -73,8 +73,7 @@ import { IncidentApparatusListComponent } from './dashboard/incident-apparatus-l
     AppRoutingModule
   ],
   providers: [
-    IncidentService,
-    SubscriptionService
+    IncidentService
   ],
   bootstrap: [
     AppComponent

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
-import { Incident, IncidentMap } from '@fits/api-interfaces';
+import { Incident, IncidentCollection } from '@fits/api-interfaces';
 import { Subscription } from 'rxjs';
 import { IncidentService } from '../../services';
 
@@ -9,7 +9,7 @@ import { IncidentService } from '../../services';
   styleUrls: ['./incident-list.component.scss'],
 })
 export class IncidentListComponent implements OnInit, OnDestroy {
-  incidents: IncidentMap = null;
+  incidents: IncidentCollection = null;
   selectedIncident: Incident = null;
 
   listSubscription: Subscription;

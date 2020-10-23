@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { Incident, IncidentMap } from '@fits/api-interfaces';
+import { Incident, IncidentCollection } from '@fits/api-interfaces';
 import { IncidentService } from '../../services';
 import { GoogleMap } from '@angular/google-maps';
 
@@ -35,7 +35,7 @@ export class Marker {
   templateUrl: './incident-map.component.html',
   styleUrls: ['./incident-map.component.scss'],
 })
-export class IncidentMapComponent implements OnInit, AfterViewInit, OnDestroy {
+export class IncidentCollectionComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild(GoogleMap) map: GoogleMap;
 
   errorMessages: Array<string> = new Array<string>();
@@ -46,7 +46,7 @@ export class IncidentMapComponent implements OnInit, AfterViewInit, OnDestroy {
   googleMap: google.maps.Map = null;
   infoWindow: google.maps.InfoWindow = null;
 
-  incidents: IncidentMap = null;
+  incidents: IncidentCollection = null;
   selectedIncident: Incident = null;
 
   listSubscription: Subscription = null;
@@ -58,20 +58,10 @@ export class IncidentMapComponent implements OnInit, AfterViewInit, OnDestroy {
   markers: Map<string, Marker> = new Map<string, Marker>();
 
   constructor(
-    private service: IncidentService // private httpClient: HttpClient
+    private service: IncidentService
   ) {}
 
   async ngOnInit(): Promise<void> {
-    // this.mapsLoaded$ = this.httpClient
-    //   .jsonp(
-    //     'https://maps.googleapis.com/maps/api/js?key=AIzaSyD1GZ-0nqIccjYUlDf-UmnezOK42j8tSXI',
-    //     'callback'
-    //   )
-    //   .pipe(
-    //     map(() => true),
-    //     catchError(() => of(false))
-    //   );
-
     if (window.google && window.google.maps) {
       this.infoWindow = new google.maps.InfoWindow();
       this.addMarkers();

@@ -4,21 +4,19 @@ import axios from 'axios';
 import { isNullOrUndefined } from 'util';
 
 import { environment } from '../../environments/environment';
-import { Incident, IncidentMap } from '@fits/api-interfaces';
+import { Incident, IncidentCollection } from '@fits/api-interfaces';
 import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class IncidentService {
-  private incidents: IncidentMap = new IncidentMap();
-  private incidentsSubject = new Subject<IncidentMap>();
+  private incidents: IncidentCollection = new IncidentCollection();
 
+  private incidentsSubject = new Subject<IncidentCollection>();
   incidents$ = this.incidentsSubject.asObservable();
 
-  private selectedIncident: Incident = new Incident();
   private selectedIncidentSubject = new Subject<Incident>();
-
   selectedIncident$ = this.selectedIncidentSubject.asObservable();
 
   constructor() {
@@ -27,7 +25,7 @@ export class IncidentService {
     }
   }
 
-  async getIncidentList(): Promise<IncidentMap> {
+  async getIncidentList(): Promise<IncidentCollection> {
     try {
       if (this.incidents.size === 0) {
         const url = `${location.origin}/api/incidents`;

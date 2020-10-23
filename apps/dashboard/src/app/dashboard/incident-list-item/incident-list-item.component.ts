@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { Incident, IncidentMap } from '@fits/api-interfaces';
+import { Incident, IncidentCollection } from '@fits/api-interfaces';
 import { Subscription } from 'rxjs';
 import { IncidentService } from '../../services';
 
@@ -9,7 +9,7 @@ import { IncidentService } from '../../services';
   styleUrls: ['./incident-list-item.component.scss'],
 })
 export class IncidentListItemComponent implements OnInit, OnDestroy {
-  @Input() incidents: IncidentMap = null;
+  @Input() incidents: IncidentCollection = null;
 
   incident: Incident = null;
   selectedID = '';

@@ -31,7 +31,7 @@ export class Incident {
   }
 }
 
-export class IncidentMap extends Map<string, Incident> {
+export class IncidentCollection extends Map<string, Incident> {
   _sortedKeys: Array<string> = new Array<string>();
 
   get sortedKeys(): Array<string> {

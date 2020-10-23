@@ -3,7 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { isNullOrUndefined } from 'util';
 import { Subscription } from 'rxjs';
 
-import { IncidentMap } from '@fits/api-interfaces';
+import { IncidentCollection } from '@fits/api-interfaces';
 import { IncidentService } from './services';
 
 @Component({
@@ -69,7 +69,7 @@ export class AppComponent implements OnInit, OnDestroy {
   protected async selectFirstIncident(): Promise<void> {
     this.errorMessages.length = 0;
     try {
-      const incidents: IncidentMap = await this.service.getIncidentList();
+      const incidents: IncidentCollection = await this.service.getIncidentList();
       if (!isNullOrUndefined(incidents) && incidents.size > 0) {
         const id = incidents.sortedKeys[0];
         this.setSelectedIncidentID(id);

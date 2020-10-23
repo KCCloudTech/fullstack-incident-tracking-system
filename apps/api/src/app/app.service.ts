@@ -10,7 +10,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { environment } from '../environments/environment';
 import {
   Incident,
-  IncidentMap,
+  IncidentCollection,
   Weather,
 } from '@fits/api-interfaces';
 
@@ -24,7 +24,7 @@ export class AppService {
 
   axiosReady = false;
   axiosReason = '';
-  incidents: IncidentMap = new IncidentMap();
+  incidents: IncidentCollection = new IncidentCollection();
 
   constructor() {}
 
